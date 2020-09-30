@@ -24,7 +24,7 @@ Once the docstrings are written, use the [create pull request action](https://gi
 By using this action, Ponicode will send the content of all the Python files of your project to the Ponicode API in order to provide you with relevant information.
 # How to setup
 ## Create a yaml workflow file in your project
-Go to the root of your project, and create the path to your workflow file. For example DES TRUCS A AJOUTER DANS LE YMAL
+Go to the root of your project, and create the path to your workflow file. For example
 ```
 mkdir -p .github/workflows
 ```
