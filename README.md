@@ -52,7 +52,8 @@ jobs:
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
         cat PATHS.txt
-    - uses: ./.github/actions/docstrings-action@master
+    - uses: actions/checkout@v2 
+    - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
         all_repo: False
@@ -103,7 +104,8 @@ jobs:
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
         cat PATHS.txt
-    - uses: ./.github/actions/docstrings-action@master
+    - uses: actions/checkout@v2 
+    - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
         all_repo: False
@@ -146,7 +148,8 @@ jobs:
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
         cat PATHS.txt
-    - uses: ./.github/actions/docstrings-action@master
+    - uses: actions/checkout@v2 
+    - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
         all_repo: False
@@ -187,7 +190,8 @@ jobs:
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
         cat PATHS.txt
-    - uses: ./.github/actions/docstrings-action@master
+    - uses: actions/checkout@v2 
+    - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
         all_repo: True
