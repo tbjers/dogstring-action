@@ -78,7 +78,7 @@ jobs:
 | Name | Description | Required | Default |
 |------|-------------|----------|---------|
 | ``repo_path`` | The relative path in your repo to the files you want Ponicode to test. By default, Ponicode tests your whole repo. | true | ``./`` |
-| ``all_repo`` | Boolean. By default, the value is false. Choose if you want to write docstrings only on the files you just commited or on all your repository| true |`` `` |
+| ``all_repo`` | Boolean. By default, the value is false. Choose if you want to write docstrings only on the files you just commited or on all your repository| true |`` False`` |
 
 # Use cases:
 ### Trigger Ponicode action on push on ``custom`` branch.
