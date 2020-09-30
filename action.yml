@@ -1,0 +1,17 @@
+name: 'Ponicode Repository Docstring'
+description: 'Add doctrings to all your undocumented functions in your repository'
+inputs: 
+  repo_path:
+    description: 'Path of repo to generate docstrings for'
+    required: true
+    default: './'
+  all_repo:
+    description: 'Boolean: choose using the action on all the repository or just on the last commit'
+    required: true
+    default: False
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo_path }}
+    - ${{ inputs.all_repo }}
