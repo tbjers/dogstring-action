@@ -68,7 +68,7 @@ class DocRepo:
         """Add docstrings to all python files in the repo"""
         # Get python files paths
         filename = os.path.join(repo_path, 'PATHS.txt')
-        with open('PATHS.txt') as f:
+        with open(filename) as f:
             filespaths = f.readlines()
         f.close()
         os.remove('PATHS.txt')
