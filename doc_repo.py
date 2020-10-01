@@ -12,10 +12,10 @@ def convert_py2string(PATH):
     with open(filename) as f:
         content = f.readlines()
     code = ''.join(content)
+    code = code.replace('"', '\"').replace("'", '\'')
     return code
 
 def add_doc2pyfile(doc_dict):
-    print(doc_dict)
     PATH = doc_dict['path']
     code = doc_dict['code']
     f = open(PATH, "w+")
@@ -63,7 +63,6 @@ class DocRepo:
             code_dict = {"code": code_string, "path": path}
             print(code_dict)
             request = self.get_docstring_dict(code_dict)
-            print(request)
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
