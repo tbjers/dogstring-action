@@ -60,7 +60,7 @@ class DocRepo:
         
         for path in tqdm.tqdm(filespaths):
             code_string = convert_py2string(path)
-            code_dict = {'code': str(code_string), 'path': path}
+            code_dict = {"code": code_string, "path": path}
             print(code_dict)
             request = self.get_docstring_dict(code_dict)
             print(request)
