@@ -81,7 +81,8 @@ class DocRepo:
             if path.endswith('.py'):
                 path = os.path.join(repo_path, path)
                 code_string = convert_py2string(path)
-                code_dict = {"code": code_string, 'path': path}
+                code_dict = {'code': code_string, 'path': path}
+                print(code_dict['path'])
                 request = self.get_docstring_dict(code_dict)
                 add_doc2pyfile(request)
                 loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
