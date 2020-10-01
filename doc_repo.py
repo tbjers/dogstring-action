@@ -12,8 +12,8 @@ def convert_py2string(PATH):
     with open(filename) as f:
         content = f.readlines()
     for i in range(len(content)):
-        content[i] = content[i].replace('"', '\"').replace("'", '\'')
-    code = ''.join(content)
+        content[i] = content[i].replace('"', '\"').replace("'", "\'")
+    code = json.dumps(''.join(content))
     return code
 
 def add_doc2pyfile(doc_dict):
@@ -62,8 +62,6 @@ class DocRepo:
         for path in tqdm.tqdm(filespaths):
             code_string = convert_py2string(path)
             code_dict = {"code": code_string, "path": path}
-            print('HERE')
-            print(code_dict)
             request = self.get_docstring_dict(code_dict)
             print(request)
             print('OK')
