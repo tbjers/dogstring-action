@@ -67,10 +67,10 @@ class DocRepo:
     def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
         # Get python files paths
-        with open('PATHS.txt') as f:
+        with open('PATHS_TO_CHANGED_FILES.txt') as f:
             filespaths = f.readlines()
         f.close()
-        os.remove('PATHS.txt')
+        os.remove('PATHS_TO_CHANGED_FILES.txt')
         number_files = len(filespaths)
         loguru.logger.info(colored(f'{number_files} files found', 'green'))
         for path in tqdm.tqdm(filespaths):
