@@ -51,8 +51,6 @@ jobs:
     - name: Get paths
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
-        cat PATHS.txt
-    - uses: actions/checkout@v2 
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
@@ -103,8 +101,6 @@ jobs:
     - name: Get paths
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
-        cat PATHS.txt
-    - uses: actions/checkout@v2 
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
@@ -147,8 +143,6 @@ jobs:
     - name: Get paths
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
-        cat PATHS.txt
-    - uses: actions/checkout@v2 
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
@@ -189,8 +183,6 @@ jobs:
     - name: Get paths
       run: |
         git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
-        cat PATHS.txt
-    - uses: actions/checkout@v2 
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
