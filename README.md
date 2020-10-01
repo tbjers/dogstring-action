@@ -50,7 +50,7 @@ jobs:
         fetch-depth: 0
     - name: Get paths
       run: |
-        git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
+        git show --pretty="" --name-only ${{ github.sha }} > PATHS_TO_CHANGED_FILES.txt
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
@@ -100,7 +100,7 @@ jobs:
         fetch-depth: 0
     - name: Get paths
       run: |
-        git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
+        git show --pretty="" --name-only ${{ github.sha }} > PATHS_TO_CHANGED_FILES.txt
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
@@ -142,7 +142,7 @@ jobs:
         fetch-depth: 0
     - name: Get paths
       run: |
-        git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
+        git show --pretty="" --name-only ${{ github.sha }} > PATHS_TO_CHANGED_FILES.txt
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
@@ -182,7 +182,7 @@ jobs:
         fetch-depth: 0
     - name: Get paths
       run: |
-        git show --pretty="" --name-only ${{ github.sha }} > PATHS.txt
+        git show --pretty="" --name-only ${{ github.sha }} > PATHS_TO_CHANGED_FILES.txt
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
