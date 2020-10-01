@@ -13,7 +13,7 @@ def convert_py2string(PATH):
         content = f.readlines()
     for i in range(len(content)):
         content[i] = content[i].replace('"', '\"').replace("'", "\'")
-    code = json.dumps(''.join(content))
+    code = ''.join(content)
     return code
 
 def add_doc2pyfile(doc_dict):
