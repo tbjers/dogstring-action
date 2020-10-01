@@ -81,6 +81,7 @@ class DocRepo:
                 path = os.path.join(repo_path, path)
                 code_string = convert_py2string(path)
                 code_dict = {'code': code_string, 'path': path}
+                print('HERE')
                 print(code_dict['path'])
                 request = self.get_docstring_dict(code_dict)
                 add_doc2pyfile(request)
