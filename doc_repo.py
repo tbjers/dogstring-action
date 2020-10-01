@@ -11,7 +11,9 @@ def convert_py2string(PATH):
     filename = PATH
     with open(filename) as f:
         content = f.readlines()
-    code = ''.join(content.replace('"', '\"').replace("'", '\''))
+    for i in range(len(content)):
+        content[i] = content[i].replace('"', '\"').replace("'", '\'')
+    code = ''.join(content)
     return code
 
 def add_doc2pyfile(doc_dict):
