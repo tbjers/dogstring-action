@@ -15,8 +15,9 @@ def convert_py2string(PATH):
     return code
 
 def add_doc2pyfile(doc_dict):
-    PATH = doc_dict['path']
-    code = doc_dict['code']
+    print(doc_dict)
+    PATH = doc_dict["path"]
+    code = doc_dict["code"]
     f = open(PATH, "w+")
     f.write(code)
     f.close()
@@ -59,9 +60,7 @@ class DocRepo:
         
         for path in tqdm.tqdm(filespaths):
             code_string = convert_py2string(path)
-            print(code_string)
-            code_dict = {"code": code_string, 'path': path}
-            print(code_dict)
+            code_dict = {"code": code_string, "path": path}
             request = self.get_docstring_dict(code_dict)
             print(request)
             add_doc2pyfile(request)
