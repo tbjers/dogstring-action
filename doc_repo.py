@@ -64,6 +64,8 @@ class DocRepo:
             print('HERE')
             print(code_dict['path'])
             request = self.get_docstring_dict(code_dict)
+            print(request)
+            print(request['path'])
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
