@@ -67,7 +67,8 @@ class DocRepo:
     def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
         # Get python files paths
-        filename = os.path.join(repo_path, 'PATHS.txt')
+        work_path = '/home/runner/work/test_docstring_github_action/test_docstring_github_action'
+        filename = os.path.join(work_path, 'PATHS.txt')
         with open(filename) as f:
             filespaths = f.readlines()
         f.close()
