@@ -1,4 +1,4 @@
-name: 'Automatic Docstring generation (Ponicode)'
+name: 'Automatic AI-based Docstring generation (Ponicode)'
 description: 'Add doctrings to all your undocumented functions in your repository'
 branding:
   icon: 'align-justify'  
