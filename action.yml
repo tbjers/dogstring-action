@@ -1,5 +1,8 @@
-name: 'Ponicode Repository Docstring'
+name: 'Automatic AI-based Docstring generation (Ponicode)'
 description: 'Add doctrings to all your undocumented functions in your repository'
+branding:
+  icon: 'align-justify'  
+  color: 'orange'
 inputs: 
   repo_path:
     description: 'Path of repo to generate docstrings for'
