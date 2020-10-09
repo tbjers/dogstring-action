@@ -1,5 +1,5 @@
 # 🦄 Automatically write docstrings for your code!🦄
-This github action generates docstrings for your Python functions with the Ponicode AI engine (this action is currently in beta version)
+This github action generates docstrings for your **Python** functions with the Ponicode AI engine (this action is currently in beta version)
 ```yaml
 - uses: ponicode/docstrings-action@master
   with:
