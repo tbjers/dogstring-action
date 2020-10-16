@@ -234,7 +234,7 @@ def determinant(matrix):
 
 ```
 
-### Contact us
+## Contact us
 
 We would love to have your feedbacks! Tell us what you love and what you want us to improve about this action at gaspard@ponicode.com. <br />
 We also have a slack community, where people can ask for help if they encounter problems with our products and where we keep you informed about our latest releases.<br />
