@@ -54,6 +54,8 @@ class DocRepo:
 
     def doc_repo(self, repo_path):
         """Add docstrings to all python files in the repo"""
+        # Remove file because unused
+        os.remove('PATHS_TO_CHANGED_FILES.txt')
         # Get python files paths
         filespaths = self.get_files_paths(repo_path)
         number_files = len(filespaths)
@@ -92,6 +94,7 @@ if __name__ == '__main__':
     repo_path = os.path.abspath(repo_path)
     version = '0.21.0'
     language = 'python'
+
     DR = DocRepo(language, version)
     if all_repo != 'false':
         DR.doc_repo(repo_path)
