@@ -1,4 +1,4 @@
-# 🦄 Automatically add docstrings to your undocumented code!🦄
+# 🦄 Magically add docstrings to your undocumented code
 
 This Github Action generates docstrings for your **Python** functions with the Ponicode AI engine (this action is currently in beta version)
 
