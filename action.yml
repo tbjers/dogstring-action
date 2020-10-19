@@ -18,3 +18,4 @@ runs:
   args:
     - ${{ inputs.repo_path }}
     - ${{ inputs.all_repo }}
+    - ${{ inputs.auth_token }}

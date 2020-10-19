@@ -29,6 +29,7 @@ class DocRepo:
     def __init__(self, language, version):
         language = 'python'
         self.language = language
+        self.headers = {'Authorization': 'Bearer: ' + auth_token, 'X-version':version}
 
     def get_files_paths(self, repo_path):
             """Get list of testable files"""
@@ -49,7 +50,7 @@ class DocRepo:
     
     def get_docstring_dict(self, code_dict):
         url = 'https://ponicode-civet-beta.azurewebsites.net/suggest'
-        r = requests.post(url, json=code_dict, timeout=600).json()
+        r = requests.post(url, headers=self.headers, json=code_dict, timeout=600).json()
         return r
 
     def doc_repo(self, repo_path):
@@ -87,12 +88,11 @@ class DocRepo:
 
 
 if __name__ == '__main__':
-    repo_path = sys.argv[1]
-    all_repo = sys.argv[2]
+    _, repo_path, all_repo, auth_token = sys.argv
     repo_path = os.path.abspath(repo_path)
     version = '0.21.0'
     language = 'python'
-    DR = DocRepo(language, version)
+    DR = DocRepo(language, version, auth_token)
     if all_repo != 'false':
         DR.doc_repo(repo_path)
     else:
