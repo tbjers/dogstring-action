@@ -26,7 +26,7 @@ def add_doc2pyfile(doc_dict):
 
 
 class DocRepo:
-    def __init__(self, language, version):
+    def __init__(self, language, version, auth_token):
         language = 'python'
         self.language = language
         self.headers = {'Authorization': 'Bearer: ' + auth_token, 'X-version':version}
