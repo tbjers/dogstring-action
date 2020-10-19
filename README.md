@@ -56,6 +56,7 @@ jobs:
     - uses: ponicode/docstrings-action@master
       with:
         repo_path: ./
+        auth_token: ${{ secrets.PONICODE_TOKEN }}
         all_repo: True
       # Creates pull request with all changes in file
     - name: Create Pull Request 
@@ -72,11 +73,31 @@ jobs:
 ```
 **This yaml file writes docstrings on your undocumented Python functions everytime you push on master and makes a pull request on a ponicode-docstrings branch with the docstrings created**
 
+## Step 2: Add your Ponicode token to github secrets
+
+To get a Ponicode token, you must first subscribe to ponicode. Once you are subscribed, open vs code and follow these steps:
+
+  - Go to VScode
+  - Enter ctrl + ,
+  - Enter 'ponicode' in the search bar
+  - Copy your Ponicode token
+
+To add the Ponicode token to your github secrets follow these steps:
+
+  - Open your project on Github
+  - Click on ```Settings```
+  - Click on ```Secrets```
+  - Click on ```New Secret```
+  - Name: ```PONICODE_TOKEN```, Value: (Paste your token from VS code)
+
+That's it! Once this is done, the action will be triggered on every push.
+
 # Ponicode Action inputs
 
 | Name | Description | Required | Default |
 |------|-------------|----------|---------|
 | ``repo_path`` | The relative path in your repo to the files you want Ponicode to test. By default, Ponicode tests your whole repo. | true | ``./`` |
+| ``auth_token`` | Boolean. By default, the value is False. Choose if you want to write docstrings only on the files you just commited (False) or on all your repository (True)| true |`` `` |
 | ``all_repo`` | Boolean. By default, the value is False. Choose if you want to write docstrings only on the files you just commited (False) or on all your repository (True)| true |`` False`` |
 
 # Use cases:

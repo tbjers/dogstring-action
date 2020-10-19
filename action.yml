@@ -8,6 +8,9 @@ inputs:
     description: 'Path of repo to generate docstrings for'
     required: true
     default: './'
+  auth_token:
+    description: 'The Ponicode token'
+    required: true
   all_repo:
     description: 'Boolean: choose using the action on all the repository or just on the last commit'
     required: true
@@ -17,5 +20,5 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.repo_path }}
-    - ${{ inputs.all_repo }}
     - ${{ inputs.auth_token }}
+    - ${{ inputs.all_repo }}

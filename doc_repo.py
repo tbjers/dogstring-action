@@ -88,7 +88,7 @@ class DocRepo:
 
 
 if __name__ == '__main__':
-    _, repo_path, all_repo, auth_token = sys.argv
+    _, repo_path, auth_token, all_repo = sys.argv
     repo_path = os.path.abspath(repo_path)
     version = '0.21.0'
     language = 'python'
