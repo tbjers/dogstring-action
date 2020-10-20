@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     version = '0.21.0'
     language = 'python'
-    DR = DocRepo(language, version, auth_token)
+    DR = DocRepo(language, version, auth_token, git_info)
     if all_repo != 'false':
         DR.doc_repo(repo_path)
     else:
