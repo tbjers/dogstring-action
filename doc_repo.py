@@ -65,6 +65,7 @@ class DocRepo:
             code_string = convert_py2string(path)
             code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
             request = self.get_docstring_dict(code_dict)
+            print(request)
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
@@ -99,8 +100,6 @@ if __name__ == '__main__':
        "jobId": job_id,
        "runId": run_id
     }
-
-    print(git_info)
 
     version = '0.21.0'
     language = 'python'
