@@ -26,10 +26,11 @@ def add_doc2pyfile(doc_dict):
 
 
 class DocRepo:
-    def __init__(self, language, version, auth_token):
+    def __init__(self, language, version, auth_token, git_info):
         language = 'python'
         self.language = language
         self.headers = {'Authorization': 'Bearer: ' + auth_token, 'X-version':version}
+        self.git_info: git_info
 
     def get_files_paths(self, repo_path):
             """Get list of testable files"""
@@ -49,7 +50,7 @@ class DocRepo:
         
     
     def get_docstring_dict(self, code_dict):
-        url = 'https://ponicode-civet-beta.azurewebsites.net/suggest'
+        url = 'https://api.ponicode.com/civet/suggest'
         r = requests.post(url, headers=self.headers, json=code_dict, timeout=600).json()
         return r
 
@@ -62,7 +63,7 @@ class DocRepo:
         
         for path in tqdm.tqdm(filespaths):
             code_string = convert_py2string(path)
-            code_dict = {"code": code_string, "path": path}
+            code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
             request = self.get_docstring_dict(code_dict)
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
@@ -88,8 +89,19 @@ class DocRepo:
 
 
 if __name__ == '__main__':
-    _, repo_path, auth_token, all_repo = sys.argv
+    _, repo_path, auth_token, all_repo, user_name, repo_name, workflow_name, job_id, run_id = sys.argv
     repo_path = os.path.abspath(repo_path)
+
+    git_info = {
+       "userName": user_name,
+       "repoName": repo_name,
+       "workflowName": workflow_name,
+       "jobId": job_id,
+       "runId": run_id
+    }
+
+    print(git_info)
+
     version = '0.21.0'
     language = 'python'
     DR = DocRepo(language, version, auth_token)
