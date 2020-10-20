@@ -66,7 +66,6 @@ class DocRepo:
             code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
             request = self.get_docstring_dict(code_dict)
             if (request['status'] < 200 or request['status'] >= 300):
-                message = request['message']
                 raise NameError(f'{request}')
             else:
                 add_doc2pyfile(request)
