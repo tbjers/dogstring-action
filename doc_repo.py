@@ -89,7 +89,7 @@ class DocRepo:
         request = self.get_docstring_dict(code_dict)
         if (request['status'] < 200 or request['status'] >= 300):
             raise RuntimeError(f'{request}')
-        else if (request['status'] >= 500):
+        elif (request['status'] >= 500):
             raise RuntimeError('internal server error')
         else:
             return request
