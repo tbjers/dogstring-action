@@ -30,7 +30,7 @@ class DocRepo:
         language = 'python'
         self.language = language
         self.headers = {'Authorization': 'Bearer: ' + auth_token, 'X-version':version}
-        self.git_info: git_info
+        self.git_info = git_info
 
     def get_files_paths(self, repo_path):
             """Get list of testable files"""
