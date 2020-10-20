@@ -6,6 +6,7 @@ This Github Action generates docstrings for your **Python** functions with the P
 - uses: ponicode/dogstring-action@master
   with:
     repo_path: ./
+    auth_token: ${{ secrets.PONICODE_TOKEN }}
     all_repo: False
 ```
 
@@ -27,7 +28,7 @@ Once the docstrings are written, use the [create pull request action](https://gi
 
 ## Terms of use
 
-By using this action, Ponicode will send the content of all the Python files of your project to the Ponicode API in order to provide you with relevant information.
+By using this action, Ponicode will send the content of all the Python files of your project to the Ponicode API in order to provide you with relevant information. None of your code will be stored, saved or shared to a third-party.
 
 # How to setup
 
@@ -93,15 +94,12 @@ jobs:
 
 ## Step 2: Add your Ponicode token to github secrets
 
-To get a Ponicode token, you must first subscribe to ponicode. Once you are subscribed, open vs code and follow these steps:
-
-  - Go to VScode
-  - Enter ctrl + ,
-  - Enter 'ponicode' in the search bar
-  - Copy your Ponicode token
+To get a Ponicode token follow these steps:
+  - Connect to your ponicode member page at https://app.ponicode.com
+  - Go to https://app.ponicode.com/actions
+  - Copy your ponicode token
 
 To add the Ponicode token to your github secrets follow these steps:
-
   - Open your project on Github
   - Click on ```Settings```
   - Click on ```Secrets```
@@ -115,7 +113,7 @@ That's it! Once this is done, the action will be triggered on every push.
 | Name | Description | Required | Default |
 |------|-------------|----------|---------|
 | ``repo_path`` | The relative path in your repo to the files you want Ponicode to test. By default, Ponicode tests your whole repo. | true | ``./`` |
-| ``auth_token`` | Boolean. By default, the value is False. Choose if you want to write docstrings only on the files you just commited (False) or on all your repository (True)| true |`` `` |
+| ``auth_token`` | String. No default value. You need to add your authentication ponicode token at https://app.ponicode.com/actions | true |`` `` |
 | ``all_repo`` | Boolean. By default, the value is False. Choose if you want to write docstrings only on the files you just commited (False) or on all your repository (True)| true |`` False`` |
 
 # Use cases:
@@ -147,6 +145,7 @@ jobs:
       - uses: ponicode/dogstring-action@master
         with:
           repo_path: ./
+          auth_token: ${{ secrets.PONICODE_TOKEN }}
           all_repo: True
         # Creates pull request with all changes in file
       - name: Create Pull Request
@@ -191,6 +190,7 @@ jobs:
       - uses: ponicode/dogstring-action@master
         with:
           repo_path: ./
+          auth_token: ${{ secrets.PONICODE_TOKEN }}
           all_repo: True
         # Creates pull request with all changes in file
       - name: Create Pull Request
@@ -238,6 +238,7 @@ jobs:
       - uses: ponicode/dogstring-action@master
         with:
           repo_path: ./
+          auth_token: ${{ secrets.PONICODE_TOKEN }}
           all_repo: False
         # Creates pull request with all changes in file
       - name: Create Pull Request
