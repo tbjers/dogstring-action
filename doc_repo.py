@@ -23,8 +23,6 @@ def add_doc2pyfile(doc_dict):
     f.write(code)
     f.close()
 
-
-
 class DocRepo:
     def __init__(self, language, version, auth_token, git_info):
         language = 'python'
@@ -64,14 +62,9 @@ class DocRepo:
         loguru.logger.info(colored(f'{number_files} files found', 'green'))
         
         for path in tqdm.tqdm(filespaths):
-            code_string = convert_py2string(path)
-            code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
-            request = self.get_docstring_dict(code_dict)
-            if (request['status'] < 200 or request['status'] >= 300):
-                raise NameError(f'{request}')
-            else:
-                add_doc2pyfile(request)
-                loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
+            request = self.run_request(path)
+            add_doc2pyfile(request)
+            loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
     def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
@@ -86,29 +79,44 @@ class DocRepo:
             path = path[:-1]
             if path.endswith('.py'):
                 path = os.path.join(repo_path, path)
-                code_string = convert_py2string(path)
-                code_dict = {'code': code_string, 'path': path}
-                request = self.get_docstring_dict(code_dict)
+                request = self.run_request(path)
                 add_doc2pyfile(request)
                 loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
+    def run_request(self, path)
+        code_string = convert_py2string(path)
+        code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
+        request = self.get_docstring_dict(code_dict)
+        if (request['status'] < 200 or request['status'] >= 300):
+            raise RuntimeError(f'{request}')
+        else if (request['status'] >= 500):
+            raise RuntimeError('internal server error')
+        else:
+            return request
+
 
 if __name__ == '__main__':
-    _, repo_path, auth_token, all_repo, user_name, repo_name, workflow_name, job_id, run_id = sys.argv
+    _, repo_path, auth_token, all_repo = sys.argv
     repo_path = os.path.abspath(repo_path)
 
     git_info = {
-       "userName": user_name,
-       "repoName": repo_name,
-       "workflowName": workflow_name,
-       "jobId": job_id,
-       "runId": run_id
+       "userName": os.environ['GITHUB_ACTOR'],
+       "repoName": os.environ['GITHUB_REPOSITORY'],
+       "workflowName": os.environ['GITHUB_WORKFLOW'],
+       "jobId": '',
+       "runId": os.environ['GITHUB_RUN_ID']
     }
 
     version = '0.21.0'
     language = 'python'
     DR = DocRepo(language, version, auth_token, git_info)
-    if all_repo != 'false':
-        DR.doc_repo(repo_path)
-    else:
-        DR.doc_repo_from_commit(repo_path)
+
+    try:
+        if all_repo != 'false':
+            DR.doc_repo(repo_path)
+        else:
+            DR.doc_repo_from_commit(repo_path)
+    except RuntimeError as err:
+        if (err === 'internal server error') pass
+        
+        
