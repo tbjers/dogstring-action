@@ -66,7 +66,8 @@ class DocRepo:
             code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
             request = self.get_docstring_dict(code_dict)
             if (request['status'] < 200 or request['status'] >= 300):
-                raise NameError(f'{request['message']}')
+                message = request['message']
+                raise NameError(f'{message}')
             else:
                 add_doc2pyfile(request)
                 loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
