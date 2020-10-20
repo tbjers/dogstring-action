@@ -106,6 +106,7 @@ if __name__ == '__main__':
        "jobId": '',
        "runId": os.environ['GITHUB_RUN_ID']
     }
+    print(git_info)
 
     version = '0.21.0'
     language = 'python'
