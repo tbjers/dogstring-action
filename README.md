@@ -85,7 +85,7 @@ jobs:
             </br>
             ### 🦄 We'd love to hear your feedback!🦄 
             Send us an email at <feedback@ponicode.com>, open an issue on our Action, or join us on the [Ponicode Community Slack](https://ponicode-community.slack.com/join/shared_invite/zt-fiq4fhkg-DE~a_FkJ7xtiZxW7efyA4Q#/).
-            Visit **[ponicode.com](https://www.google.com)** to find out more about what we do.
+            Visit **[ponicode.com](https://ponicode.com)** to find out more about what we do.
             </br>
             <img alt="Ponicode Logo" src="https://avatars0.githubusercontent.com/u/49948625?s=200&v=4=200zx" width="100"/>
 ```
