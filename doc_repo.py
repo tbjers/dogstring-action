@@ -65,9 +65,11 @@ class DocRepo:
             code_string = convert_py2string(path)
             code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
             request = self.get_docstring_dict(code_dict)
-            print(request)
-            add_doc2pyfile(request)
-            loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
+            if (request['status'] < 200 or request['status'] >= 300):
+                raise NameError(f'{ request['message'] }')
+            else:
+                add_doc2pyfile(request)
+                loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
     def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
