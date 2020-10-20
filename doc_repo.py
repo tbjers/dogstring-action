@@ -71,6 +71,7 @@ class DocRepo:
         # Get python files paths
         with open('PATHS_TO_CHANGED_FILES.txt') as f:
             filespaths = f.readlines()
+            print(filespaths)
         f.close()
         os.remove('PATHS_TO_CHANGED_FILES.txt')
         number_files = len(filespaths)
