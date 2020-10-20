@@ -112,7 +112,7 @@ if __name__ == '__main__':
     DR = DocRepo(language, version, auth_token, git_info)
 
     try:
-        if all_repo != 'false':
+        if (all_repo != 'false'):
             DR.doc_repo(repo_path)
         else:
             DR.doc_repo_from_commit(repo_path)
