@@ -22,8 +22,8 @@ runs:
     - ${{ inputs.repo_path }}
     - ${{ inputs.auth_token }}
     - ${{ inputs.all_repo }}    
-    - ${{ github.actor }}
-    - ${{ github.repository }}
-    - ${{ github.workflow }}
-    - ${{ github.job }}
-    - ${{ github.run_id }}
+    - ${{ inputs.actor }}
+    - ${{ inputs.repository }}
+    - ${{ inputs.workflow }}
+    - ${{ inputs.job }}
+    - ${{ inputs.run_id }}
