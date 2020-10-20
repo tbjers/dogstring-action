@@ -3,7 +3,6 @@ FROM python:3.7
 
 WORKDIR /app
 
-#Pourquoi on copie les requirements? Et de quels requirements on parle?
 COPY requirements.txt /app/
 
 RUN pip install -r requirements.txt
