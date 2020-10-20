@@ -83,7 +83,7 @@ class DocRepo:
                 add_doc2pyfile(request)
                 loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
-    def run_request(self, path)
+    def run_request(self, path):
         code_string = convert_py2string(path)
         code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
         request = self.get_docstring_dict(code_dict)
@@ -118,5 +118,5 @@ if __name__ == '__main__':
             DR.doc_repo_from_commit(repo_path)
     except RuntimeError as err:
         if (err === 'internal server error') pass
-        
+
         
