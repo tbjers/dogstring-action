@@ -95,8 +95,7 @@ jobs:
 ## Step 2: Add your Ponicode token to github secrets
 
 To get a Ponicode token follow these steps:
-  - Connect to your ponicode member page at https://app.ponicode.com
-  - Go to https://app.ponicode.com/actions
+  - Connect to your ponicode member page at https://app.ponicode.com/actions
   - Copy your ponicode token
 
 To add the Ponicode token to your github secrets follow these steps:
