@@ -27,7 +27,7 @@ class DocRepo:
     def __init__(self, language, version, auth_token, git_info):
         language = 'python'
         self.language = language
-        self.headers = {'Authorization': 'Bearer: ' + auth_token, 'X-version':version}
+        self.headers = {'Authorization': 'Bearer: ' + auth_token.rstrip(), 'X-version':version}
         self.git_info = git_info
 
     def get_files_paths(self, repo_path):
