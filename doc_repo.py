@@ -120,6 +120,7 @@ if __name__ == '__main__':
         else:
             DR.doc_repo_from_commit(repo_path)
     except RuntimeError as err:
+        print('Server Error')
         if (err == 'internal server error'): 
             pass
 
