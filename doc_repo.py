@@ -88,7 +88,7 @@ class DocRepo:
 
     def run_request(self, path):
         code_string = convert_py2string(path)
-        code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info}
+        code_dict = {"code": code_string, "path": path, 'gitInfo': self.git_info, 'enable_template': enable_template}
         request = self.get_docstring_dict(code_dict)
         if (request['status'] < 200 or request['status'] >= 300):
             raise RuntimeError(f'{request}')
@@ -99,7 +99,7 @@ class DocRepo:
 
 
 if __name__ == '__main__':
-    _, repo_path, auth_token, all_repo = sys.argv
+    _, repo_path, auth_token, all_repo, enable_template = sys.argv
     repo_path = os.path.abspath(repo_path)
 
     git_info = {
