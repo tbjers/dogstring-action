@@ -51,8 +51,10 @@ class DocRepo:
         url = 'https://api.ponicode.com/civet/suggest'
         r = requests.post(url, headers=self.headers, json=code_dict, timeout=600)
         print('debug')
+        print(r.status_code)
         print(r.content)
         print(code_dict)
+        print("=========")
         r = r.json()
         return r
 
