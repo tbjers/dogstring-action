@@ -49,7 +49,9 @@ class DocRepo:
     
     def get_docstring_dict(self, code_dict):
         url = 'https://api.ponicode.com/civet/suggest'
-        r = requests.post(url, headers=self.headers, json=code_dict, timeout=600).json()
+        r = requests.post(url, headers=self.headers, json=code_dict, timeout=600)
+        print(r)
+        r = r.json()
         return r
 
     def doc_repo(self, repo_path):
@@ -115,7 +117,7 @@ if __name__ == '__main__':
     DR = DocRepo(language, version, auth_token, git_info)
 
     try:
-        if (all_repo == 'true'):
+        if (all_repo.lower() == 'true'):
             DR.doc_repo(repo_path)
         else:
             DR.doc_repo_from_commit(repo_path)
