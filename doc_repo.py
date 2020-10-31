@@ -66,9 +66,7 @@ class DocRepo:
         loguru.logger.info(colored(f'{number_files} files found', 'green'))
         
         for path in tqdm.tqdm(filespaths):
-            print('START PATH', path)
             request = self.run_request(path)
-            print('END PATH', path)
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
