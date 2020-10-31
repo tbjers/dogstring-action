@@ -50,6 +50,7 @@ class DocRepo:
     def get_docstring_dict(self, code_dict):
         url = 'https://api.ponicode.com/civet/suggest'
         r = requests.post(url, headers=self.headers, json=code_dict, timeout=600)
+        print('CONTENT', r.content)
         r = r.json()
         return r
 
@@ -66,7 +67,9 @@ class DocRepo:
         loguru.logger.info(colored(f'{number_files} files found', 'green'))
         
         for path in tqdm.tqdm(filespaths):
+            print('START', path)
             request = self.run_request(path)
+            print('END', path)
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
