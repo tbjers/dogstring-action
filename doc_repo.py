@@ -68,9 +68,9 @@ class DocRepo:
             try:
                 request = self.run_request(path)
                 add_doc2pyfile(request)
-                loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
+                loguru.logger.info(colored(f'Add docstrings to the file ' + path, 'green'))
             except:
-                loguru.logger.info(colored(f'Services unavailable - No docstrings added', 'green'))
+                loguru.logger.info(colored(f'Services unavailable - No docstrings added to the file ' + path, 'red'))
 
     def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
