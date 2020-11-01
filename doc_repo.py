@@ -5,7 +5,8 @@ import copy
 import requests
 import json
 from termcolor import colored
-import tqdm 
+import tqdm
+import time
 
 def convert_py2string(PATH):
     filename = PATH
@@ -50,8 +51,12 @@ class DocRepo:
     def get_docstring_dict(self, code_dict):
         url = 'https://api.ponicode.com/civet/suggest'
         r = requests.post(url, headers=self.headers, json=code_dict, timeout=600)
-        print(r.content)
-        r = r.json()
+        try:
+            r = r.json()
+        except:
+            print(r.content)
+            time.sleep(5)
+            r = r.json()
         return r
 
     def doc_repo(self, repo_path):
