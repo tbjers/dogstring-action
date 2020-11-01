@@ -65,9 +65,12 @@ class DocRepo:
         loguru.logger.info(colored(f'{number_files} files found', 'green'))
         
         for path in tqdm.tqdm(filespaths):
-            request = self.run_request(path)
-            add_doc2pyfile(request)
-            loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
+            try:
+                request = self.run_request(path)
+                add_doc2pyfile(request)
+                loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
+            except:
+                loguru.logger.info(colored(f'Services unavailable - No docstrings added', 'green'))
 
     def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
