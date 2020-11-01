@@ -51,11 +51,6 @@ class DocRepo:
     def get_docstring_dict(self, code_dict):
         url = 'https://api.ponicode.com/civet/suggest'
         r = requests.post(url, headers=self.headers, json=code_dict, timeout=600)
-        try:
-            r = r.json()
-        except:
-            print(r.content)
-            time.sleep(5)
             r = r.json()
         return r
 
