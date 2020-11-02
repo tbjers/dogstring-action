@@ -102,6 +102,10 @@ if __name__ == '__main__':
     _, repo_path, auth_token, all_repo = sys.argv
     repo_path = os.path.abspath(repo_path)
 
+    if (len(auth_token) != 36):
+        print("No token provided !\nSee https://github.com/ponicode/dogstring-action#step-2-add-your-ponicode-token-to-github-secrets")
+        sys.exit()
+
     git_info = {
        "userName": os.environ['GITHUB_ACTOR'],
        "repoName": os.environ['GITHUB_REPOSITORY'],
