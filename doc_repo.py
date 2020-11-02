@@ -106,6 +106,9 @@ class DocRepo:
 if __name__ == '__main__':
     _, repo_path, auth_token, all_repo, enable_template = sys.argv
     repo_path = os.path.abspath(repo_path)
+    print('ENABLE TEMPLATE')
+    print(enable_template)
+    print (type(enable_template))
 
     git_info = {
        "userName": os.environ['GITHUB_ACTOR'],
