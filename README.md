@@ -1,4 +1,4 @@
-<img alt="Ponicode Logo" src="https://blog.ponicode.com/wp-content/uploads/2020/11/Couv-readme.png" width="100%"/>
+[<img alt="Ponicode Logo" src="https://blog.ponicode.com/wp-content/uploads/2020/11/Couv-readme.png" width="100%"/>](https://dogstring.ponicode.com)
 
 # 🦄 Magically add docstrings to your undocumented code
 
