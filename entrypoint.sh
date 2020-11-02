@@ -1,1 +1,1 @@
-python /app/doc_repo.py $1 $2
+python /app/doc_repo.py "$1" "$2" "$3" "$4"
