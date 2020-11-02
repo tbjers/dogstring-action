@@ -15,7 +15,7 @@ inputs:
     description: 'Boolean: choose using the action on all the repository or just on the last commit'
     required: true
     default: False
-  enable_templates:
+  enable_template:
     description: 'Boolean: enable params and templates in the docstrings'
     required: false
     default: true
@@ -26,4 +26,5 @@ runs:
   args:
     - ${{ inputs.repo_path }}
     - ${{ inputs.auth_token }}
-    - ${{ inputs.all_repo }}    
+    - ${{ inputs.all_repo }}
+    - ${{ inputs.enable_template }}
