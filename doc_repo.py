@@ -54,7 +54,7 @@ class DocRepo:
         r = r.json()
         return r
 
-    def doc_repo(self, repo_pat, enable_template):
+    def doc_repo(self, repo_path):
         """Add docstrings to all python files in the repo"""
         # Remove file because unused - try/except because if it doesn't exists
         try:
@@ -74,7 +74,7 @@ class DocRepo:
             except:
                 loguru.logger.info(colored(f'Services unavailable - No docstrings added to the file ' + path, 'red'))
 
-    def doc_repo_from_commit(self, repo_path, enable_template):
+    def doc_repo_from_commit(self, repo_path):
         """Add docstrings to all python files in the repo"""
         # Get python files paths
         with open('PATHS_TO_CHANGED_FILES.txt') as f:
