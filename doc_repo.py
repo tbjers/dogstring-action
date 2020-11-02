@@ -52,7 +52,7 @@ class DocRepo:
         r = requests.post(url, json=code_dict, timeout=600).json()
         return r
 
-    def doc_repo(self, repo_path):
+    def doc_repo(self, repo_pat, enable_template):
         """Add docstrings to all python files in the repo"""
         # Remove file because unused
         os.remove('PATHS_TO_CHANGED_FILES.txt')
@@ -63,12 +63,12 @@ class DocRepo:
         
         for path in tqdm.tqdm(filespaths):
             code_string = convert_py2string(path)
-            code_dict = {"code": code_string, "path": path}
+            code_dict = {"code": code_string, "path": path, 'enable_template': enable_template}
             request = self.get_docstring_dict(code_dict)
             add_doc2pyfile(request)
             loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
 
-    def doc_repo_from_commit(self, repo_path):
+    def doc_repo_from_commit(self, repo_path, enable_template):
         """Add docstrings to all python files in the repo"""
         # Get python files paths
         with open('PATHS_TO_CHANGED_FILES.txt') as f:
@@ -82,7 +82,7 @@ class DocRepo:
             if path.endswith('.py'):
                 path = os.path.join(repo_path, path)
                 code_string = convert_py2string(path)
-                code_dict = {'code': code_string, 'path': path}
+                code_dict = {'code': code_string, 'path': path, 'enable_template': enable_template}
                 request = self.get_docstring_dict(code_dict)
                 add_doc2pyfile(request)
                 loguru.logger.info(colored(f'Add docstrings to a new file', 'green'))
@@ -91,12 +91,16 @@ class DocRepo:
 if __name__ == '__main__':
     repo_path = sys.argv[1]
     all_repo = sys.argv[2]
+    if len(sys.argv)==4:
+        enable_template = sys.argv[3]
+    else:
+        enable_template = 'true'
     repo_path = os.path.abspath(repo_path)
     version = '0.21.0'
     language = 'python'
 
     DR = DocRepo(language, version)
     if all_repo != 'false':
-        DR.doc_repo(repo_path)
+        DR.doc_repo(repo_path, enable_template)
     else:
-        DR.doc_repo_from_commit(repo_path)
+        DR.doc_repo_from_commit(repo_path, enable_template)
