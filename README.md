@@ -1,6 +1,6 @@
-# 🦄 Magically add docstrings to your undocumented code
-
 <img alt="Ponicode Logo" src="https://blog.ponicode.com/wp-content/uploads/2020/11/Couv-readme.png" width="100%"/>
+
+# 🦄 Magically add docstrings to your undocumented code
 
 This Github Action generates docstrings for your **Python** functions with the Ponicode AI engine (this action is currently in beta version)
 
