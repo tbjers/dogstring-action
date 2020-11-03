@@ -112,12 +112,12 @@ That's it! Once this is done, the action will be triggered on every push.
 
 # Ponicode Action inputs
 
-| Name               | Description                                                                                                                                                  | Required | Default  |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
-| `repo_path`        | The relative path in your repo to the files you want Ponicode to test. By default, Ponicode tests your whole repo.                                           | true     | `./`     |
-| `auth_token`       | String. No default value. You need to add your authentication ponicode token at https://app.ponicode.com/actions                                             | true     | ` `      |
-| `all_repo`         | Boolean. By default, the value is False. Choose if you want to write docstrings only on the files you just commited (False) or on all your repository (True) | true     | ` False` |
-| `enable_templates` | Boolean. By default, the value is true. Choose if you want to docstrings to include params and templates                                                     | false    | ` true`  |
+| Name              | Description                                                                                                                                                  | Required | Default  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
+| `repo_path`       | The relative path in your repo to the files you want Ponicode to test. By default, Ponicode tests your whole repo.                                           | true     | `./`     |
+| `auth_token`      | String. No default value. You need to add your authentication ponicode token at https://app.ponicode.com/actions                                             | true     | ` `      |
+| `all_repo`        | Boolean. By default, the value is False. Choose if you want to write docstrings only on the files you just commited (False) or on all your repository (True) | true     | ` False` |
+| `enable_template` | Boolean. By default, the value is true. Choose if you want to docstrings to include params and templates                                                     | false    | ` True`  |
 
 # Use cases:
 
