@@ -29,7 +29,7 @@ Once the docstrings are written, use the [create pull request action](https://gi
 
 ## Terms of use
 
-By using this action, Ponicode will send the content of all the Python files of your project to the Ponicode API in order to provide you with relevant information. None of your code will be stored, saved or shared with a third-party.
+When you use this action, Ponicode will send the content of all the Python files of your project to the Ponicode API in order to provide you with relevant documentation. Some of your code might be stored to improve our prediction models, but it will never be shared with a third-party.
 
 # How to setup
 
