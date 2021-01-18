@@ -16,7 +16,7 @@ Once the docstrings are written, use the [create pull request action](https://gi
 
 ```yaml
 - name: Create Pull Request
-  uses: peter-evans/create-pull-request@v2
+  uses: peter-evans/create-pull-request@v3
   with:
     token: ${{ secrets.GITHUB_TOKEN }}
     commit-message: "[ponicode-pull-request] Ponicode found docstrings to write!"
@@ -74,7 +74,7 @@ jobs:
           all_repo: True
         # Creates pull request with all changes in file
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "[ponicode-pull-request] Ponicode wrote new docstrings!"
@@ -152,7 +152,7 @@ jobs:
           all_repo: True
         # Creates pull request with all changes in file
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "[ponicode-pull-request] Ponicode wrote new docstrings!"
@@ -202,7 +202,7 @@ jobs:
           all_repo: True
         # Creates pull request with all changes in file
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "[ponicode-pull-request] Ponicode wrote new docstrings!"
@@ -250,7 +250,7 @@ jobs:
           all_repo: False
         # Creates pull request with all changes in file
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v2
+        uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "[ponicode-pull-request] Ponicode wrote new docstrings!"
